@@ -6,16 +6,18 @@ const token = process.env.BOT_TOKEN;
 const link = "https://www.google.com/";
 
 const bot = new Telegraf(token);
-bot.start((ctx) =>
-  ctx.reply("Welcome", {
-    reply_markup: {
-      keyboard: [[{ text: "Open Google", web_app: { url: link } }]],
-    },
-  })
-);
+bot.start((ctx) => ctx.reply("Welcome to the bot!"));
 
 bot.command("help", (ctx) => {
   ctx.reply("Type anything to get started");
+});
+
+bot.command("google", (ctx) => {
+  generateLink(link, ctx);
+});
+
+bot.command("gmail", (ctx) => {
+  generateLink("https://mail.google.com/mail/u/0/#inbox", ctx);
 });
 
 //get the user input
@@ -35,9 +37,7 @@ console.log("Bot is running");
 function generateLink(link, ctx) {
   ctx.reply("Open the link with button below", {
     reply_markup: {
-      keyboard: [
-        [{ text: "Open Link", web_app: { url: link, username: "game" } }],
-      ],
+      keyboard: [[{ text: "Open Link", web_app: { url: link } }]],
     },
   });
 }
