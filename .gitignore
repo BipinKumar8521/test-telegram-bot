@@ -35,3 +35,4 @@ Thumbs.db
 # Ignore sensitive or private information
 secrets.txt
 credentials.json
+.vercel
