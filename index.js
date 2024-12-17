@@ -47,7 +47,6 @@ const app = express();
 app.use(bot.webhookCallback("/secret-path"));
 
 app.get("/", (req, res) => {
-	bot.launch();
 	res.send("Bot is running");
 });
 
